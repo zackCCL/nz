@@ -10,9 +10,7 @@ const mw = (req, res, next) => {
             traceId: Date.now()
         }
     }).run(() => {
-        console.log('start');
         next();
-        console.log('end');
     });
 }
 module.exports = { azone, mw };
