@@ -1,0 +1,57 @@
+defaults: &defaults
+  api:
+    port: 3000
+
+  query:
+    limit: 5
+
+  db:
+    host: localhost
+    user: zack
+    password: '123'
+    database: tt
+
+  adm:
+    password: '123'
+
+  logger:
+    name: nz
+    level: debug
+    levels:
+      trace:
+      debug: STDOUT
+      info:
+      warn:
+      error: STDERR
+      fatal:
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  api:
+    port: 80
+
+  db:
+    host: localhost
+    user: zack
+    password: '123'
+    database: tt
+
+  query:
+    limit: 20
+
+  adm:
+    password: 'admadm'
+
+  logger:
+    name: nz
+    level: debug
+    levels:
+      trace:
+      debug: STDOUT
+      info: ./log/info.log
+      warn: ./log/warn.log
+      error: ./log/error.log
+      fatal: ./log/fatal.log

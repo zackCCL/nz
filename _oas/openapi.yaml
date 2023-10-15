@@ -1,0 +1,35 @@
+openapi: 3.0.1
+info:
+  title: Guilford Test
+  version: 1.0.0
+servers:
+- url: /api
+tags:
+- name: Base
+- name: Survey
+paths:
+  /v:
+    get:
+      tags:
+      - Base
+      summary: Get version
+      operationId: getVerson
+      responses:
+        "200":
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Ver'
+components:
+  schemas:
+    Ver:
+      type: object
+      properties:
+        version:
+          type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header
